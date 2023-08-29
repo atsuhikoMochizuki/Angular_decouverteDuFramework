@@ -1,13 +1,16 @@
 import { Component, NgModule } from "@angular/core";
-import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
-import { AppModule } from "./app/app.module";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { BrowserModule } from "@angular/platform-browser";
 
 
 @Component({
   selector: 'app-root',
-  template: '<app-header></app-header><app-footer></app-footer>'
-
+  template: `
+  <app-header>
+    <app-menu></app-menu>
+  </app-header>
+  <app-footer></app-footer>
+  `
 })
 class AppComponent { }
 
@@ -15,7 +18,7 @@ class AppComponent { }
   selector: 'app-header',
   template: `
   <h2>Haut de page</h2>
-  <app-menu></app-menu>>
+  <app-menu></app-menu>
 `
 })
 class HeaderComponent { }
@@ -30,8 +33,8 @@ class FooterComponent { }
   selector: 'app-menu',
   template: `
   <div><a href='/home'>Accueil</a></div>
-  <div>< a href = '/presentation'> Présentation < /a></div >
-  <div><a href='/contact' > Contact < /a></div >
+  <div><a href = '/presentation'> Présentation </a></div >
+  <div><a href='/contact' > Contact </a></div >
   `
 })
 class MenuComponent {
@@ -39,19 +42,22 @@ class MenuComponent {
 }
 
 @NgModule({
-  declarations:[
+  declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent
-],
-  imports:[
+  ],
+  imports: [
     BrowserModule
   ],
   bootstrap: [AppComponent]
 })
-class MyModule{
+
+class AppModule {
 }
 
 platformBrowserDynamic()
-  .bootstrapModule(AppModule);
+  .bootstrapModule(AppModule)
+  .then(() => console.log("L'application a été chargée..."))
+  .catch(console.error);
