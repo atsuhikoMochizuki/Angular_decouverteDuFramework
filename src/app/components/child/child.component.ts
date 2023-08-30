@@ -6,14 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent {
-  @Input()
-  public greeting = '';
-
-  @Output()
-  public emitter = new EventEmitter();
-
-  @ngOnInit(){
-    this.emitter.emit();
-  }
+ @Output()
+ public emitter = new EventEmitter();
 }
 

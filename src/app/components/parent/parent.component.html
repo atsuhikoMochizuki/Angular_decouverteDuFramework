@@ -1,4 +1,8 @@
 <app-child
-	(emitter)="test($event)"
-	greeting="salut!">
+	(emitter)="received = $event">
 </app-child>
+
+<p>
+	<strong>Recu de l'enfant</strong>
+	{{received}}
+</p>

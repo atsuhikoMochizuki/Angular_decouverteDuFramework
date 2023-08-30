@@ -1,3 +1,2 @@
-<div>
-    <strong>valeur reçue du parent : {{''}}</strong>
-</div>
+<input #userInput type="text">
+<button (click)="emitter.emit(userInput.value)">envoyer</button>
