@@ -1,4 +1,26 @@
 <header>
-    <h1>Soit le bienvenu {{pseudo}} !</h1>
+    <h1 [ngStyle]="{
+        color: pseudo =='coco'?'red':'green',
+        backgroundColor:'blue'
+    }">Soit le bienvenu {{pseudo|uppercase|lowercase}} !</h1>
+    <input type="text" [(ngModel)]="pseudo">
+    <p>valeur de {{pseudo}}</p>
+    <button (click)="test()">cliquez</button>
+    <img src="{{imgSrc}}" alt="" width="100">
+    <!-- Ceci affiche un titre -->
+    <h1 *ngIf="true">TITRE</h1>
+    <div *ngIf="userConnected">Bienvenue {{user.name}}</div>
+    <div *ngIf="!userConnected">Connectez-vous</div>
+    <div [ngSwitch]="user.friends.length">
+        <p *ngSwitchCase="3">Tu as beacoup d'amis</p>
+        <p *ngSwitchCase="2">Tu as peu d'amis</p>
+        <p *ngSwitchDefault=>Dommage, tu n'as d'amis</p>
+    </div>
+    <div *ngFor="let friend of user.friends; index as i; first as f">
+        {{i+1}}: {{friend}} est un bon ami
+    </div>
+
+    
+    
     <app-nav></app-nav>
 </header>

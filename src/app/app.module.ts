@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 import { NavComponent } from './components/nav/nav.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavComponent } from './components/nav/nav.component';
     NavComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule     /*<===ICI*/
   ],
   providers: [],
   bootstrap: [AppComponent]
